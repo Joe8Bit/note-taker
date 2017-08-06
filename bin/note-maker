@@ -12,7 +12,7 @@ const chalk = require('chalk');
 
 const version = require('../package.json').version;
 
-const templatePath = process.env.NOTE_TEMPLATE_PATH || path.join('.', 'templates');
+const templatePath = process.env.NOTE_TEMPLATE_PATH || path.join(__dirname, '..', 'templates');
 const templateSuffix = '.md.ejs';
 
 const editor = process.env.EDITOR || 'nvim';
