@@ -78,7 +78,7 @@ prompt.multi([{
     label: 'Location'
 }, {
     key: 'attendees',
-    label: 'Attendees'
+    label: 'Attendees (comma seperated)'
 }, {
     key: 'template',
     label: 'Template',
