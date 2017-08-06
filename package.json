@@ -1,13 +1,13 @@
 {
-  "name": "note-maker",
+  "name": "@Joe8Bit/note-maker",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple CLI tool to make markdown note taking easier",
+  "main": "bin/note-taker",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Joe Pettersson",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^2.0.1",
     "cli-prompt": "^0.6.0",
