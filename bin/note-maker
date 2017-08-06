@@ -1,0 +1,90 @@
+#!/usr/bin/env node
+"use strict";
+
+const prompt = require('cli-prompt');
+const ejs = require('ejs');
+const fs = require('fs');
+const path = require('path');
+const moment = require('moment');
+const child_process = require('child_process');
+const minimist = require('minimist');
+const chalk = require('chalk');
+
+const version = require('../package.json').version;
+
+const templatePath = process.env.NOTE_TEMPLATE_PATH || path.join('.', 'templates');
+const templateSuffix = '.md.ejs';
+
+const editor = process.env.EDITOR || 'nvim';
+
+const defaultSavePath = process.env.NOTE_SAVE_PATH || process.cwd();
+
+const argv = minimist(process.argv.slice(2));
+
+const spawnEditor = (savePath) => {
+    child_process.spawn(editor, [savePath], { stdio: 'inherit' });
+}
+
+const hydrateData = (config) => {
+    config.fileName = `${moment().format('MMM Do YYYY')} - ${config.title}.md`;
+    config.timestamp = moment().format('MMM Do YYYY [@] H:mm');
+    config.attendees = config.attendees.split(',').map((attendee) => {
+        return attendee.trim();
+    });
+    return config;
+}
+
+const getTemplate = (templateStr) => {
+    let fullTemplatePath = path.join(templatePath, `${templateStr}${templateSuffix}`);
+    if (fs.existsSync(fullTemplatePath)) {
+        return fs.readFileSync(fullTemplatePath).toString();
+    } else {
+        throw new Error(`Template "${templateStr}" does not exist`);
+    }
+}
+
+const onPromptSuccess = (config) => {
+    let data = hydrateData(config);
+    let template = getTemplate(data.template);
+    let renderedOutput = ejs.render(template, data);
+    let savePath = path.join(data.path, data.fileName);
+    
+    if (!fs.existsSync(savePath)) {
+        fs.writeFileSync(savePath, renderedOutput);
+        if (argv.e) {
+            spawnEditor(savePath);
+        }
+    } else {
+        throw new Error(`The note "${savePath}" already exists`);
+    }
+}
+
+const onPromptError = (err) => {
+    console.error(err);
+}
+
+console.log(chalk.bold.yellow(`
+==========================================
+= Note Maker (v${version})                    =
+= by Joe Pettersson                      =
+==========================================
+`));
+
+prompt.multi([{
+    key: 'title',
+    label: 'Title'
+}, {
+    key: 'location',
+    label: 'Location'
+}, {
+    key: 'attendees',
+    label: 'Attendees'
+}, {
+    key: 'template',
+    label: 'Template',
+    default: 'note'
+}, {
+    key: 'path',
+    label: 'Path',
+    default: defaultSavePath
+}], onPromptSuccess, onPromptError);
