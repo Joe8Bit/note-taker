@@ -1,5 +1,5 @@
 {
-  "name": "@Joe8Bit/note-maker",
+  "name": "@joe8bit/note-maker",
   "version": "1.0.0",
   "description": "A simple CLI tool to make markdown note taking easier",
   "main": "bin/note-taker",
