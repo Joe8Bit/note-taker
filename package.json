@@ -1,6 +1,6 @@
 {
   "name": "@joe8bit/note-maker",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A simple CLI tool to make markdown note taking easier",
   "bin": "./bin/note-maker",
   "scripts": {
