@@ -23,6 +23,7 @@ There are also several environment variables that can be configured to control `
 * `NOTE_TEMPLATE_PATH` which tells the tool where to look for it's template directory, it overrides the default
   * It will try to find templates in that directory, as specified during the wizard in the `[template_name].md.ejs` format
 * `NOTE_SAVE_PATH` which overrides the `process.cwd()` call and will always save notes in this directory if it is set
+* `NOTE_TEMPLATE_SUFFIX` which overrides the suffix for a template
 
 ### License
 

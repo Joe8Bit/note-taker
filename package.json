@@ -12,6 +12,7 @@
     "chalk": "^2.0.1",
     "cli-prompt": "^0.6.0",
     "ejs": "^2.5.7",
+    "inquirer": "^3.2.1",
     "minimist": "^1.2.0",
     "moment": "^2.18.1"
   }
