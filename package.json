@@ -1,10 +1,10 @@
 {
   "name": "@joe8bit/note-maker",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A simple CLI tool to make markdown note taking easier",
   "bin": "./bin/note-maker",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc --check-coverage --lines 100 ava"
   },
   "author": "Joe Pettersson",
   "license": "MIT",
@@ -15,5 +15,12 @@
     "inquirer": "^3.2.1",
     "minimist": "^1.2.0",
     "moment": "^2.18.1"
+  },
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "nyc": "^11.1.0",
+    "proxyquire": "^1.8.0",
+    "rimraf": "^2.6.1",
+    "sinon": "^3.0.0"
   }
 }
