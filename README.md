@@ -25,6 +25,14 @@ There are also several environment variables that can be configured to control `
 * `NOTE_SAVE_PATH` which overrides the `process.cwd()` call and will always save notes in this directory if it is set
 * `NOTE_TEMPLATE_SUFFIX` which overrides the suffix for a template
 
+## Testing
+
+```
+npm test
+```
+
+Tests will fail if coverage <100%
+
 ### License
 
 MIT
