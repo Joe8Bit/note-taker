@@ -8,6 +8,6 @@ module.exports = (selectedTemplate, templatePath, templateSuffix) => {
     if (fs.existsSync(fullTemplatePath)) {
         return fs.readFileSync(fullTemplatePath).toString();
     } else {
-        throw new Error(`Template "${templateStr}" does not exist`);
+        throw new Error(`Template "${selectedTemplate}" does not exist`);
     }
 };
