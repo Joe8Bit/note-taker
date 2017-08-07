@@ -1,5 +1,7 @@
 ## Note-maker
 
+[![CircleCI](https://circleci.com/gh/Joe8Bit/note-taker.svg?style=svg)](https://circleci.com/gh/Joe8Bit/note-taker)
+
 > If you are not me, this CLI tool is likely to provide *zero* value
 
 A tool for creating the skeleton of Markdown notes (based on templates) in the current directory and then optionally opening them in `$EDITOR`.
