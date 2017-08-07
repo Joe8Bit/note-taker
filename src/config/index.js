@@ -12,7 +12,7 @@ const getEditor         = require('./get-editor');
 
 // Internal state
 let config = {
-    commandLineArgs:    getArgv(process.argv.slice(2)),
+    commandLineArgs:    getArgv(),
     savePath:           getSavePath(),
     templatePath:       getTemplatePath(),
     editor:             getEditor(),
