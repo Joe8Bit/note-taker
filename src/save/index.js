@@ -7,7 +7,7 @@ module.exports = (rendered, savePath) => {
     if (!fs.existsSync(savePath)) {
         fs.writeFileSync(savePath, rendered);
     } else {
-        throw new Error(`The note "${savePath}" already exists`);
+        throw new Error(`The note already exists`);
     }
 };
   
