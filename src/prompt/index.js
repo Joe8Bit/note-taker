@@ -53,6 +53,9 @@ const questions = [{
     }
 }];
 
-module.exports = () => {
-    return inquirer.prompt(questions);
+module.exports = {
+    start: () => {
+        return inquirer.prompt(questions);
+    },
+    config: questions
 };

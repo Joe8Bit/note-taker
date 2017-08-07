@@ -22,7 +22,7 @@ logger(chalk.bold.green('= '), chalk.white(`by Joe8Bit                          
 logger(chalk.bold.green('=========================================='));
 logger('');
 
-prompt().then((answers) => {
+prompt.start().then((answers) => {
     let conf = config(answers);
     let rendered = template(conf);
     let fullSavePath = path.join(conf.savePath, conf.fileName);
