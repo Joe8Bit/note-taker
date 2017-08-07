@@ -46,9 +46,9 @@ const questions = [{
     default: getSavePath(),
     validate: (value) => {
         if (fs.existsSync(value)) {
-            return true
+            return true;
         } else {
-            return "That path doesn't seem to exist, please try again";
+            throw new Error("That path doesn't seem to exist, please try again");
         }
     }
 }];
